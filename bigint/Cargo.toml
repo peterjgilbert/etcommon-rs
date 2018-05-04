@@ -13,7 +13,6 @@ name = "bigint"
 [dependencies]
 heapsize = { version = "0.4", optional = true }
 byteorder = { version = "1.0", default-features = false }
-rand = { version = "0.3.12", optional = true }
 libc = { version = "0.2", optional = true }
 etcommon-rlp = { version = "0.2", path = "../rlp", default-features = false, optional = true }
 etcommon-hexutil = { version = "0.2", path = "../hexutil", default-features = false, optional = true }
@@ -25,4 +24,4 @@ x64asm_arithmetic = []
 rust_arithmetic = []
 rlp = ["etcommon-rlp"]
 string = ["etcommon-hexutil"]
-std = ["byteorder/std", "rand", "libc", "etcommon-rlp/std", "etcommon-hexutil/std"]
+std = ["byteorder/std", "libc", "etcommon-rlp/std", "etcommon-hexutil/std"]

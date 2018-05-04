@@ -20,8 +20,6 @@ use alloc::String;
 #[cfg(feature = "std")] use std::hash::{Hash, Hasher, BuildHasherDefault};
 #[cfg(feature = "std")] use std::collections::{HashMap as Map, HashSet as Set};
 #[cfg(feature = "std")] use std::str::FromStr;
-#[cfg(feature = "std")] use rand::Rng;
-#[cfg(feature = "std")] use rand::os::OsRng;
 #[cfg(feature = "std")] use libc::{c_void, memcmp};
 
 #[cfg(not(feature = "std"))] use core::{ops, fmt, cmp};
@@ -90,20 +88,6 @@ macro_rules! impl_hash {
 			}
 
             #[cfg(feature = "std")]
-			/// Create a new, cryptographically random, instance.
-			pub fn random() -> $from {
-				let mut hash = $from::new();
-				hash.randomize();
-				hash
-			}
-
-            #[cfg(feature = "std")]
-			/// Assign self have a cryptographically random value.
-			pub fn randomize(&mut self) {
-				let mut rng = OsRng::new().unwrap();
-				rng.fill_bytes(&mut self.0);
-			}
-
 			/// Get the size of this object in bytes.
 			pub fn len() -> usize {
 				$size

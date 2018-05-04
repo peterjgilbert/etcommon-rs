@@ -17,8 +17,6 @@ extern crate rlp;
 #[cfg(feature = "string")]
 extern crate hexutil;
 #[cfg(feature = "std")]
-extern crate rand;
-#[cfg(feature = "std")]
 extern crate libc;
 extern crate byteorder;
 
